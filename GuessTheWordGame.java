@@ -6,10 +6,10 @@ public class GuessTheWordGame {
         String[] wordList = {"java", "test", "computer", "mindera", "apple", "leaf"};
         String wordToGuess = chooseWord(wordList);
         int lives = 6;
-        StringBuilder guessedWord = new StringBuilder(wordToGuess.replaceAll(".", "*"));
+        
 
         System.out.println("Welcome to Guess the Word Game!");
-        System.out.println("Try to guess the word. Good luck!");
+        System.out.println("Try to guess the word");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,9 +20,9 @@ public class GuessTheWordGame {
             System.out.print("Enter a letter: ");
             char userGuess = scanner.next().toLowerCase().charAt(0);
 
-            if (Character.isLetter(userGuess)) {
+            if ((userGuess)) {
                 if (guessedWord.indexOf(String.valueOf(userGuess)) != -1) {
-                    System.out.println("You already guessed that letter. Try again.");
+                    System.out.println("You already guessed this letter. Try again.");
                 } else if (wordToGuess.indexOf(userGuess) != -1) {
                     updateGuessedWord(wordToGuess, guessedWord, userGuess);
                     System.out.println("Correct guess!");
@@ -35,7 +35,7 @@ public class GuessTheWordGame {
             }
 
             if (guessedWord.indexOf("*") == -1) {
-                System.out.println("\nCongratulations! You guessed the word: " + wordToGuess);
+                System.out.println("Congratulations! You guessed the word: " + wordToGuess);
                 break;
             }
         }
